@@ -24,5 +24,11 @@ Experiments:
 Result:
 ![image](https://github.com/user-attachments/assets/137977bd-dba9-43c5-8fe5-79e8a12a4efb)
 
+![image](https://github.com/user-attachments/assets/ed92bba8-c2f5-4ba0-aa48-316ac8474b25)
+
+
+![image](https://github.com/user-attachments/assets/065e06ea-5ed2-4f79-bfdb-221f51d2cc87)
+
+
 
 
