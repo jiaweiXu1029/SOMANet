@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from einops import rearrange
 from mmengine.model import BaseModule
-from Models.SCSA import SCSA
+from Models.SRA import SRA
 
 # 定义深度可分离卷积
 class DepthwiseSeparableConv(nn.Module):
@@ -352,11 +352,10 @@ class RAMOptimized(nn.Module):
 
         saliency_map_1_1 = saliency_maps['1_1']
 
-        # 动态计算 H 和 W（假设原始图像是正方形）
-        hw = int(saliency_map_1_1.size(1) ** 0.5)  # 例如 50176 → 224
-        assert hw * hw == saliency_map_1_1.size(1), \
-            f"特征图尺寸 {saliency_map_1_1.size(1)} 不是平方数，无法分割为 H 和 W"
 
+        hw = int(saliency_map_1_1.size(1) ** 0.5) 
+        assert hw * hw == saliency_map_1_1.size(1), \
+            f"特征图尺寸 {saliency_map_1_1.size(1)}
         # 调整维度顺序和形状
         saliency_map_1_1 = saliency_map_1_1.permute(0, 2, 1)  # [B, C, H*W]
         saliency_map_1_1 = saliency_map_1_1.view(
@@ -373,14 +372,9 @@ class RAMOptimized(nn.Module):
         optimized_1_1 = self.conv_pred_1_1(attn_feature_1_1)
         optimized_maps['1_1'] = optimized_1_1
 
-        # ====================================================================
-        # 步骤 3: 上采样所有特征图到原始分辨率（修复插值尺寸）
-        # ====================================================================
-        # 获取目标尺寸（从修正后的 1_1 特征图）
+
         target_height = saliency_map_1_1.size(2)  # H
         target_width = saliency_map_1_1.size(3)  # W
-
-        # 上采样操作
         optimized_1_16_up = F.interpolate(
             optimized_maps['1_16'],
             size=(target_height, target_width),
@@ -399,7 +393,7 @@ class RAMOptimized(nn.Module):
             mode='bilinear',
             align_corners=True
         )
-        optimized_1_1 = optimized_maps['1_1']  # 已经是目标尺寸
+        optimized_1_1 = optimized_maps['1_1'] 
 
         concatenated = torch.cat([
             optimized_1_16_up,
