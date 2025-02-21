@@ -15,5 +15,14 @@ Data Preparation
 
 RGB-T SOD, we employ the following datasets to VT821,VT1000,VT50000.You can directly download these datasets by following:https://pan.baidu.com/s/1ri83cKHnyn7_9ptbLjWbow 提取码: 3vn8.
 
-
+Experiments:
  First, you should choose the specific backbone version. For the swin version, we provide Swin-DESS(S) and Swin-DESS(B).
+
+ Next, you should run test.py or train.py.
+
+
+Result:
+![image](https://github.com/user-attachments/assets/137977bd-dba9-43c5-8fe5-79e8a12a4efb)
+
+
+
