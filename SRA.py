@@ -5,10 +5,10 @@ import torch
 import torch.nn as nn
 from einops import rearrange
 from mmengine.model import BaseModule
-__all__ = ['SCSA']
+__all__ = ['SRA']
 
 
-class SCSA(BaseModule):
+class SRA(BaseModule):
 
     def __init__(
             self,
