@@ -21,8 +21,6 @@ Experiments:
  Next, you should run test.py or train.py.
 
  If you have any questions or would like to know more details, please feel free to contact me.
- E-mail：Java_Xu1029@163.com,786857622@qq.com
-
 
 Result:
 ![image](https://github.com/user-attachments/assets/137977bd-dba9-43c5-8fe5-79e8a12a4efb)
